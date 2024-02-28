@@ -1,25 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
+import CabeceraConReudx from "./view/containers/CabeceraConRedux"
+import { Provider } from 'react-redux';
+import globalState from './store/AppGlobalState';
+import ListaConRedux from "./view/containers/ListaConRedux"
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={globalState}>
+      <CabeceraConReudx/>
+      <main className='container'>
+        <div className='w-50 mx-auto'>
+          <ListaConRedux/>
+        </div>
+      </main>
+    </Provider>
   );
 }
+
 
 export default App;
